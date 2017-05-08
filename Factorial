@@ -1,0 +1,23 @@
+package oopbasic;
+import java.util.Scanner;
+
+public class Factorial {
+
+	public static void main(String[] args) {
+		int number;
+		System.out.println("Enter the number for which factorial is to be found");
+		Scanner sc =new Scanner(System.in);
+		number=sc.nextInt();
+		sc.close();
+		
+		System.out.println("Factorial of "+ number+ "  is  " +  fact(number));
+	}	
+static int fact(int number)
+{
+	if (number==0 || number==1)
+		return 1;
+	else
+	return(number* fact(number - 1));
+	}
+
+}
