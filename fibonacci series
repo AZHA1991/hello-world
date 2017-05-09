@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Fibonacci {
+
+	public static void main(String[] args) {
+int first_term=0,second_term=1,third_term;
+System.out.println("enter the limit of fibonacci series");
+Scanner s=new Scanner(System.in);
+int ch=s.nextInt();
+s.close();
+System.out.print(first_term + "   "  + second_term);
+System.out.print("  ");
+for(int i=1;i<ch-1;i++)
+{
+	third_term=first_term + second_term;
+System.out.print(third_term);
+
+first_term=second_term;
+second_term=third_term;
+
+System.out.print("  ");
+
+}	
+System.out.println();
+System.out.println("The series contains" +"  " + ch + "   terms");
+	}
+
+}
