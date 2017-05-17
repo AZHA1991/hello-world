@@ -1,0 +1,40 @@
+package oopbasic;
+import java.util.Scanner;
+
+public class CapToSmallandViceVersa {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int count=0,c1=0;
+		System.out.println("Enter a sentence containing both capital and small letters:");
+        String s=new Scanner(System.in).nextLine();
+        char a[]=s.toCharArray();
+        System.out.println("After changing capital letters to small letters and viceversa:");
+        for(int i=0;i<a.length;i++)
+        {
+        if ((int)a[i] >=97 && (int)a[i] <= 122) //ASCII value for small letters(97 to 122)
+        {
+        	count++;
+        	System.out.print(s.substring(i,i+1).toUpperCase());
+        }
+        else if((int)a[i] >=65 && (int)a[i] <= 90) //ASCII value for capital letters(65 to 90) 
+        {
+        	c1++;
+        System.out.print(s.substring(i,i+1).toLowerCase());
+        }
+        else if ((int)a[i]==32) //ASCII value for space
+        {
+        	System.out.print(" ");
+        }
+	}
+        System.out.println();
+        System.out.println("No of capital letters before changing "+ c1);
+        System.out.println("No of small letters before changing"+ count);
+        System.out.println("No of capital letters after changing "+ c1);
+        System.out.println("No of small letters after changing"+ count);
+        
+        
+        
+
+}
+}
