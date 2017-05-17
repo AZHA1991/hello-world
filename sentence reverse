@@ -1,0 +1,18 @@
+package oopbasic;
+
+import java.util.Scanner;
+
+public class SentenceReverse {
+
+	public static void main(String[] args) {
+		
+		
+		String s;
+		System.out.println("enter any sentence");
+		s=new Scanner(System.in).nextLine();
+	String[] split = new String[]{};
+		 split = s.split(" ");
+		 for(int i=split.length-1;i>=0;i--)
+ System.out.print(split[i] + "  ");
+	}
+}
