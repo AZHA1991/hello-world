@@ -1,0 +1,205 @@
+package oopbasic;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+public class CalculatorUser {
+	static int n=1,a,b,ch,count=2,num;
+	static float tot;
+	static String s;
+	public static void main(String[] args) {
+		gettingNumbers();
+	}
+	public static void gettingNumbers() {
+		try{
+        System.out.println("Enter the 2 nos");
+		a= new Scanner(System.in).nextInt();
+		System.out.println();
+		b= new Scanner(System.in).nextInt();
+		
+		}
+		catch(InputMismatchException e)
+		{
+			System.out.println("You are not allowed to enter float values or alphabets:");
+			System.out.println("Please only enter integers.");
+			gettingNumbers();
+	    }
+		
+		
+		
+		gettingChoice();
+	}
+	public static void gettingChoice() {
+		
+		try
+		{
+		System.out.println();
+		System.out.println("1.ADDITION");
+		System.out.println("2.SUBTRACTION");
+		System.out.println("3.MULTIPLICATION");
+		System.out.println("4.DIVISION");
+		System.out.println("Enter your choice");
+	    ch=new Scanner(System.in).nextInt();
+	    if((ch==4) && (a==0&& b==0))
+	    {
+	    	System.out.println("you can't proceed with division when both the numbers are zero:");
+		System.out.println("you can do only addition,subtraction or multiplication:");
+		gettingChoice();
+	    }
+	    else if((ch==4) && (b==0))
+	    {
+	    	System.out.println("you can't proceed with division when second number is zero:");
+			System.out.println("you can do only addition,subtraction or multiplication:");
+			gettingChoice();
+	    }
+	    else
+	    	
+	    calculatingTotal(ch);
+		}
+		catch(InputMismatchException e)
+		{
+			System.out.println("You are not allowed to enter float values or alphabets:");
+			System.out.println("Please only enter integers.");
+			gettingChoice();
+		}
+		
+		
+	}
+	public static void calculatingTotal(int ch) {
+		switch(ch)
+		{
+case 1:
+	 tot=a+b;
+	System.out.println(a+ "+" +b + "=" +(a+b));
+	break;
+			case 2:
+				tot=a-b;
+				System.out.println(a+ "-" +b + "=" +(a-b));
+				break;
+			case 3:
+				tot=a*b;
+				System.out.println(a+ "*" +b + "=" +(a*b));
+				break;
+			case 4:
+				float c;
+			 c=((float)a)/b;
+			 tot=c;
+			      System.out.println(a+ "/" +b + "=" +(c));
+				break;
+			 	
+				
+				
+            default:
+            	System.out.println("please enter choice only between 1 and 4");
+            	gettingChoice();
+		}
+		continueOrTerminate();
+	}
+		public static void continueOrTerminate()
+		{
+		
+		try
+		{
+		System.out.println("Do you want to continue or exit");
+		System.out.println("1.continue 0.exit");
+		n=new Scanner(System.in).nextInt();
+		gettingConsecutiveNumbers(n,count++);
+		}
+		catch(InputMismatchException e){
+			System.out.println("You are not allowed to enter anything other than 1 or 0 here:");
+		System.out.println("Enter either 1 or 0");
+		continueOrTerminate();
+		}
+		
+		}
+        public static void gettingConsecutiveNumbers(int n,int count)
+        {
+		if (n==1)
+		{
+			try
+			{
+			count++;
+			System.out.println("Enter the " + count + "th number" );
+		num= new Scanner(System.in).nextInt();
+		choiceAgain(num,count++);
+			}
+			catch (InputMismatchException e) {
+				System.out.println("You are not allowed to enter float values or alphabets here:");
+				System.out.println("Enter any integer:");
+				gettingConsecutiveNumbers(1,--count);
+				                              }
+			
+		}
+		else
+		{
+		System.out.println("Thank you");
+System.exit(n);		
+}
+        }
+		public static void choiceAgain(int num,int count)
+		{
+			try
+			{
+		System.out.println();
+		System.out.println("1.ADDITION");
+		System.out.println("2.SUBTRACTION");
+		System.out.println("3.MULTIPLICATION");
+		System.out.println("4.DIVISION");
+		System.out.println("Enter your choice");
+	    int ch1=new Scanner(System.in).nextInt();
+	    if ((ch1==4)&& (num==0))
+	    {
+	    	System.out.println("you can't proceed with division when number is zero:");
+			System.out.println("you can do only addition,subtraction or multiplication:");
+			choiceAgain(num, count);
+	    }
+	    else
+	    
+	    calculateAgain(ch1,count++);
+			}
+			catch (InputMismatchException e) {
+				System.out.println("You are not allowed to enter float values or alphabets:");
+				System.out.println("Please only enter integers.");
+				choiceAgain(1,--count);
+				}
+			
+		}
+			
+			public static void calculateAgain(int ch1,int count)
+			{
+		switch(ch1)
+		{
+case 1:
+	tot+=num;
+	System.out.println((tot-num) + "+" + num + "=" + (tot));
+	break;
+case 2:
+	tot-=num;
+	System.out.println((tot+num) + "-" + num + "=" + (tot));
+	break;
+case 3:
+	tot*=num;
+	System.out.println((tot/num) + "*" + num + "=" + (tot));
+	break;
+case 4:
+	
+	tot=((float)tot)/num;
+	
+		 System.out.println((tot * num) + "/" + num + "=" + (tot));
+			break;
+
+	
+	
+	default:
+    System.out.println("please enter choice only between 1 and 4");
+    choiceAgain(1,--count);
+		}
+		continueOrTerminate();
+			}
+}
+		
+		
+	  
+
+	
+
+
+
